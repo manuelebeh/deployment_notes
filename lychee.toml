@@ -1,0 +1,22 @@
+# Link checker config — https://lychee.cli.rs
+no_progress = true
+max_retries = 3
+timeout = 20
+accept = ["200..=299", "403", "429"]
+
+# Placeholders, local addresses and pages that block bots or need a login
+exclude = [
+  "yourdomain",
+  "your_vps_ip",
+  "example\\.com",
+  "localhost",
+  "127\\.0\\.0\\.1",
+  "203\\.0\\.113\\.",
+  "hostinger\\.com/cart",
+  "dash\\.cloudflare\\.com",
+  "discord\\.com/api/webhooks",
+  "github\\.com/manuelebeh/deployment_notes/issues",
+]
+
+# Check links in code blocks? No — they are commands, not links to visit.
+include_verbatim = false

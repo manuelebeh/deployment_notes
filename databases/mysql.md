@@ -1,5 +1,7 @@
 # MySQL on a VPS
 
+[🇫🇷 Lire en français](../fr/databases/mysql.md)
+
 Install MySQL, secure it, and create a dedicated user and database for your app.
 
 | Ubuntu | Default `mysql-server` package |

@@ -1,0 +1,20 @@
+{
+  "config": {
+    "default": true,
+    // Long lines are fine in docs (tables, URLs, commands)
+    "MD013": false,
+    // <details>/<summary> blocks are used for optional content
+    "MD033": { "allowed_elements": ["details", "summary", "code", "br"] },
+    // Same heading text is allowed in different sections (e.g. "Option A")
+    "MD024": { "siblings_only": true },
+    // Consecutive blockquotes separated by a blank line are intentional notes
+    "MD028": false,
+    // Lists inside numbered steps use 3-space indentation
+    "MD007": { "indent": 2 },
+    // Emoji / bold lines are sometimes used as small labels
+    "MD036": false,
+    // Table delimiter rows are written as |---|---| (compact)
+    "MD060": false
+  },
+  "ignores": ["node_modules/**", ".github/**"]
+}

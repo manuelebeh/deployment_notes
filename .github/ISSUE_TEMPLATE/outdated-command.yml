@@ -1,0 +1,41 @@
+name: Outdated or broken command
+description: A command in a guide doesn't work (anymore)
+title: "[Broken] <guide>: <short description>"
+labels: [bug]
+body:
+  - type: input
+    id: guide
+    attributes:
+      label: Guide
+      description: Link to the guide (and section)
+      placeholder: https://github.com/manuelebeh/deployment_notes/blob/main/databases/mongodb.md#1-install
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The command you ran
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error / output
+      description: The exact error message
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS version
+      description: Output of `lsb_release -ds`
+      placeholder: Ubuntu 24.04.3 LTS
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix (if you found one)

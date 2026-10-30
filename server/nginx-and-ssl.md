@@ -1,6 +1,10 @@
 # Nginx & SSL (Let's Encrypt)
 
+[🇫🇷 Lire en français](../fr/server/nginx-and-ssl.md)
+
 Serve your frontends and proxy your API with Nginx, then add free HTTPS certificates that renew themselves.
+
+> Prefer automatic HTTPS with a much shorter config? See [Caddy](caddy.md). Using Cloudflare? Read [Cloudflare in front of your VPS](cloudflare.md) too.
 
 - [1. Install Nginx](#1-install-nginx)
 - [2. Point your domain to the VPS](#2-point-your-domain-to-the-vps)

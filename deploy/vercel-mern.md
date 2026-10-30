@@ -1,5 +1,7 @@
 # Deploy a MERN Project on Vercel
 
+[🇫🇷 Lire en français](../fr/deploy/vercel-mern.md)
+
 Host the React frontend and the Express backend as **two Vercel projects** (one per folder of your repo), with your database on a managed service (e.g. MongoDB Atlas).
 
 - [1. Express backend (zero config)](#1-express-backend-zero-config)
@@ -17,7 +19,7 @@ Since late 2025, Vercel detects Express automatically — **no `vercel.json` nee
 
 Vercel looks for a file that imports `express` at one of these paths:
 
-```
+```text
 app.js   index.js   server.js
 src/app.js   src/index.js   src/server.js
 ```
@@ -56,6 +58,7 @@ app.get('/api/health', (req, res) => res.json({ ok: true }));
 
 module.exports = app;
 ```
+
 </details>
 
 Deploy:
@@ -107,7 +110,7 @@ Project settings for a Vite app (normally auto-detected):
 
 For a repo like:
 
-```
+```text
 your-repo/
 ├── backend/    → Vercel project #1 (Root Directory: backend)
 └── frontend/   → Vercel project #2 (Root Directory: frontend)

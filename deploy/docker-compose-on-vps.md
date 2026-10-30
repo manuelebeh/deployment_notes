@@ -1,8 +1,10 @@
 # Deploy with Docker Compose on a VPS
 
+[🇫🇷 Lire en français](../fr/deploy/docker-compose-on-vps.md)
+
 Run your Node.js API and its database in containers, with the host's Nginx in front for HTTPS. Same server, but reproducible: `docker compose up -d` and you're done.
 
-```
+```text
 Browser ──HTTPS──▶ Nginx (host) ──┬──▶ /var/www/.../frontend/dist (static)
                                   └──▶ 127.0.0.1:4000 ──▶ [api container] ──▶ [mongo container]
 ```
@@ -111,7 +113,7 @@ CMD ["node", "server.js"]
 
 `backend/.dockerignore`:
 
-```
+```text
 node_modules
 .env
 .git
@@ -166,6 +168,8 @@ MONGO_PASSWORD=change-me-long-random-password
 ```bash
 chmod 600 .env backend/.env
 ```
+
+> To keep the example short, the API connects with the MongoDB root user. For a real project, create a dedicated `readWrite` user (`docker compose exec mongo mongosh -u admin -p`, then step 4 of the [MongoDB guide](../databases/mongodb.md#4-create-a-database-user-for-your-app)) and use it in `MONGODB_URI`.
 
 <details>
 <summary>PostgreSQL instead of MongoDB</summary>

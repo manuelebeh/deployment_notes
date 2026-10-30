@@ -1,5 +1,7 @@
 # Deployment Notes
 
+🇬🇧 English · [🇫🇷 Français](fr/README.md)
+
 Practical, copy-paste friendly guides to deploy JavaScript (MERN / Node.js) projects on a Linux VPS or on Vercel — from a fresh server to HTTPS, databases, automatic deployments and backups.
 
 > Last reviewed: **October 2026** — targets **Ubuntu 24.04 LTS** and **Ubuntu 26.04 LTS**.
@@ -27,15 +29,21 @@ When choosing the OS, pick a plain **Ubuntu 24.04** or **Ubuntu 26.04** template
 |---|---|
 | [Initial server setup](server/initial-server-setup.md) | Non-root sudo user, SSH keys, hardened SSH, firewall, Fail2ban, automatic security updates, swap |
 | [Nginx & SSL (Let's Encrypt)](server/nginx-and-ssl.md) | Domain/DNS, Nginx server blocks for SPAs and APIs, free HTTPS with Certbot, auto-renewal |
+| [Caddy (alternative to Nginx)](server/caddy.md) | Automatic HTTPS, a whole MERN/Next.js config in ~10 lines |
+| [Cloudflare in front of your VPS](server/cloudflare.md) | Proxy/CDN, Full (strict) SSL, real visitor IPs, origin lockdown, error codes |
+| [Monitoring & alerts](server/monitoring.md) | Health checks, uptime monitoring (Uptime Kuma), disk/memory alerts, logs |
+| [Several apps on one VPS](server/multiple-apps.md) | Ports, PM2, Nginx, databases per app, staging, isolation, sizing |
 
 ### 2. Deploy
 
 | Guide | What you get |
 |---|---|
 | [MERN stack on a VPS](deploy/mern-on-vps.md) | Node.js, Express API with PM2, React (Vite) builds, Nginx, HTTPS, update workflow |
+| [Next.js on a VPS](deploy/nextjs-on-vps.md) | `next start` or standalone build, zero-downtime releases & rollback, streaming |
 | [Docker Compose on a VPS](deploy/docker-compose-on-vps.md) | Docker Engine, a Node API + database in containers behind Nginx |
 | [Auto-deploy with GitHub Actions](deploy/github-actions-auto-deploy.md) | Deploy on every push to `main` over SSH |
 | [MERN on Vercel](deploy/vercel-mern.md) | Zero-config Express backend, React Router rewrites, `vercel.json` reference |
+| [Coolify & Dokploy](deploy/coolify-dokploy.md) | Self-hosted PaaS: push-to-deploy from a dashboard on your own VPS |
 
 ### 3. Databases
 
@@ -54,10 +62,13 @@ When choosing the OS, pick a plain **Ubuntu 24.04** or **Ubuntu 26.04** template
 
 1. [Initial server setup](server/initial-server-setup.md)
 2. A database guide (e.g. [MongoDB](databases/mongodb.md))
-3. [MERN stack on a VPS](deploy/mern-on-vps.md) — or [Docker Compose](deploy/docker-compose-on-vps.md)
-4. [Nginx & SSL](server/nginx-and-ssl.md) (linked from step 3)
+3. [MERN stack](deploy/mern-on-vps.md) or [Next.js](deploy/nextjs-on-vps.md) — or [Docker Compose](deploy/docker-compose-on-vps.md)
+4. [Nginx & SSL](server/nginx-and-ssl.md) (or [Caddy](server/caddy.md)), optionally behind [Cloudflare](server/cloudflare.md)
 5. [Auto-deploy with GitHub Actions](deploy/github-actions-auto-deploy.md)
 6. [Database backups](databases/backups.md)
+7. [Monitoring & alerts](server/monitoring.md)
+
+Prefer a dashboard to the command line? Start with [Coolify & Dokploy](deploy/coolify-dokploy.md) on a fresh VPS instead of steps 3–5.
 
 ---
 
@@ -68,6 +79,8 @@ When choosing the OS, pick a plain **Ubuntu 24.04** or **Ubuntu 26.04** template
 | Ubuntu | 24.04 LTS or 26.04 LTS | 22.04 still works for most steps but reaches end of standard support in April 2027 |
 | Node.js | **26 LTS** (or 24 LTS) | Node 26 became Active LTS on 28 Oct 2026; Node 24 is in maintenance until April 2028; Node 20 is end-of-life |
 | Nginx | Ubuntu package | 1.24 on 24.04, 1.28 on 26.04 |
+| Caddy | 2.11 | Official repo |
+| Next.js | 16 | |
 | Certbot | snap | Official EFF recommendation |
 | MongoDB | 9.0 | Official `mongodb-org` repo |
 | PostgreSQL | 18 | Default on 26.04; via the official PGDG repo on 24.04 |
@@ -75,6 +88,8 @@ When choosing the OS, pick a plain **Ubuntu 24.04** or **Ubuntu 26.04** template
 | MariaDB | 11.8 LTS | Default on 26.04 (10.11 on 24.04) |
 | Redis | 8.x | Official `packages.redis.io` repo |
 | PM2 | 7.x | `npm install -g pm2` |
+| Docker Engine | latest | Official repo |
+| Coolify / Dokploy | 4.5 / 0.30 | |
 
 ---
 
@@ -87,4 +102,8 @@ When choosing the OS, pick a plain **Ubuntu 24.04** or **Ubuntu 26.04** template
 
 ## Contributing
 
-Found an outdated command or a typo? Open an issue or a pull request.
+Found an outdated command or a typo? [Open an issue](https://github.com/manuelebeh/deployment_notes/issues/new/choose) or a pull request — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE)

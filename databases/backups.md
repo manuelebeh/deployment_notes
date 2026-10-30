@@ -1,5 +1,7 @@
 # Database Backups
 
+[🇫🇷 Lire en français](../fr/databases/backups.md)
+
 A database without tested backups is a database you'll lose one day. This guide sets up **daily compressed dumps**, keeps the last 7 days, copies them **off the server**, and shows how to restore.
 
 - [0. Folder & credentials](#0-folder--credentials)
@@ -55,7 +57,7 @@ Restore a single database: add `--nsInclude='app_db.*'`.
 
 `~/.pgpass` (format `host:port:database:user:password`):
 
-```
+```text
 127.0.0.1:5432:app_db:app_user:strong_password_here
 ```
 

@@ -1,5 +1,7 @@
 # Initial Server Setup (Ubuntu 24.04 / 26.04)
 
+[🇫🇷 Lire en français](../fr/server/initial-server-setup.md)
+
 Do this **once**, right after buying your VPS, before deploying anything. It takes ~15 minutes and protects you from the bots that start scanning every new IP within minutes.
 
 - [1. First login & updates](#1-first-login--updates)

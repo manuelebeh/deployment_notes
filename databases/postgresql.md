@@ -1,5 +1,7 @@
 # PostgreSQL on a VPS
 
+[🇫🇷 Lire en français](../fr/databases/postgresql.md)
+
 Install PostgreSQL, create a dedicated user and database for your app, and (optionally) allow secure remote access.
 
 | Ubuntu | Default `postgresql` package | Latest via PGDG repo |
@@ -45,7 +47,7 @@ sudo systemctl status postgresql
 psql --version
 ```
 
-PostgreSQL listens on `localhost:5432` only, by default. 
+PostgreSQL listens on `localhost:5432` only, by default.
 
 ## 2. Create a user and a database
 
@@ -76,6 +78,7 @@ psql "postgresql://app_user@127.0.0.1:5432/app_db"
 sudo -u postgres createuser --pwprompt app_user
 sudo -u postgres createdb --owner=app_user app_db
 ```
+
 </details>
 
 <details>
@@ -89,6 +92,7 @@ GRANT USAGE ON SCHEMA public TO readonly_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly_user;
 ALTER DEFAULT PRIVILEGES FOR ROLE app_user IN SCHEMA public GRANT SELECT ON TABLES TO readonly_user;
 ```
+
 </details>
 
 ## 3. Connection strings

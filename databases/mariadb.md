@@ -1,5 +1,7 @@
 # MariaDB on a VPS
 
+[🇫🇷 Lire en français](../fr/databases/mariadb.md)
+
 Install MariaDB, secure it, and create a dedicated user and database for your app.
 
 | Ubuntu | Default `mariadb-server` package |

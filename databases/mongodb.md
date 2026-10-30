@@ -1,5 +1,7 @@
 # MongoDB on a VPS (Community 9.0)
 
+[🇫🇷 Lire en français](../fr/databases/mongodb.md)
+
 Install MongoDB from the official repository, turn on authentication, and create a user for your app.
 
 Supported: **Ubuntu 22.04 (jammy), 24.04 (noble), 26.04 (resolute)** — x86_64 and ARM64.

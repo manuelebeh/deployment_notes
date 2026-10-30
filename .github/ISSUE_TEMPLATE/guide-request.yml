@@ -1,0 +1,17 @@
+name: New guide request
+description: Suggest a stack, tool or topic to cover
+title: "[Guide request] <topic>"
+labels: [enhancement]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: e.g. Deploy a NestJS API with Docker
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should the guide cover?
+      description: Your use case, stack, constraints (VPS size, provider…)

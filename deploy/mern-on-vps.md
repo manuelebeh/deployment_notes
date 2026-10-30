@@ -1,8 +1,12 @@
 # Deploy a MERN Stack Project on a VPS
 
+[🇫🇷 Lire en français](../fr/deploy/mern-on-vps.md)
+
 Deploy an Express/Node.js API and one or more React frontends on a single Ubuntu VPS, with PM2, Nginx and free HTTPS.
 
-```
+> Using Next.js? See [Next.js on a VPS](nextjs-on-vps.md). Running several projects on the same server? See [Several apps on one VPS](../server/multiple-apps.md).
+
+```text
 Browser ──HTTPS──▶ Nginx ──┬──▶ /var/www/.../frontend/dist   (React build, static files)
                            └──▶ 127.0.0.1:4000              (Express API, run by PM2)
                                         │
@@ -294,4 +298,4 @@ To run it automatically on every push, see [Auto-deploy with GitHub Actions](git
 | App doesn't restart after reboot | Run the command printed by `pm2 startup`, then `pm2 save` |
 | `EADDRINUSE` | Port already used → `sudo ss -ltnp 'sport = :4000'` |
 
-**Next:** [automate deployments](github-actions-auto-deploy.md) and set up [database backups](../databases/backups.md).
+**Next:** [automate deployments](github-actions-auto-deploy.md), set up [database backups](../databases/backups.md) and [monitoring](../server/monitoring.md).

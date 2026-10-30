@@ -1,5 +1,7 @@
 # Auto-Deploy to a VPS with GitHub Actions
 
+[🇫🇷 Lire en français](../fr/deploy/github-actions-auto-deploy.md)
+
 Every push to `main` → GitHub connects to your VPS over SSH → runs your deploy script.
 
 Prerequisite: your app is already deployed manually with a working `deploy.sh` (see [MERN on a VPS → Deploying updates](mern-on-vps.md#7-deploying-updates)).
@@ -72,7 +74,7 @@ jobs:
 
 Push to `main` and watch the *Actions* tab.
 
-> If you installed Node with **nvm**, non-interactive SSH sessions don't load it. Add `source ~/.nvm/nvm.sh` as the first line of the `script:` block (or of `deploy.sh`).
+> If you installed Node with **nvm**, non-interactive SSH sessions don't load it. Add `source ~/.nvm/nvm.sh` at the top of the `script:` block (or of `deploy.sh`).
 
 ## 4. (Optional) Run tests first
 

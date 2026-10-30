@@ -1,5 +1,7 @@
 # Redis on a VPS
 
+[🇫🇷 Lire en français](../fr/databases/redis.md)
+
 Redis is an in-memory data store used for **caching, sessions, rate limiting and job queues** (BullMQ, etc.). This guide installs Redis Open Source 8.x from the official repository and locks it down.
 
 - [1. Install](#1-install)
@@ -40,11 +42,15 @@ sudo nano /etc/redis/redis.conf
 Check / set these lines:
 
 ```conf
-bind 127.0.0.1 -::1        # local only (default)
+# Local only (default)
+bind 127.0.0.1 -::1
 protected-mode yes
 port 6379
-requirepass a-very-long-random-password    # generate with: openssl rand -hex 32
+# Generate with: openssl rand -hex 32
+requirepass a-very-long-random-password
 ```
+
+> `redis.conf` only accepts comments on their **own line** — a `# comment` at the end of a setting breaks the config.
 
 ```bash
 sudo systemctl restart redis-server
@@ -72,8 +78,10 @@ Cap memory so Redis can't take down your server, and choose what happens when it
 
 ```conf
 maxmemory 256mb
-maxmemory-policy allkeys-lru     # pure cache: evict least recently used keys
-# maxmemory-policy noeviction    # queues/sessions (BullMQ requires noeviction)
+# Pure cache: evict least recently used keys
+maxmemory-policy allkeys-lru
+# Queues/sessions instead (BullMQ requires noeviction):
+# maxmemory-policy noeviction
 ```
 
 Persistence (keep data across restarts) — append-only file is the safest:
